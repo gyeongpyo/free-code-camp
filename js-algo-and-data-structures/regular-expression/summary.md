@@ -284,14 +284,6 @@ multipleHA.test(A100); // Returns false
 
 * *negative lookahead*: look to make sure the element in the search pattern is not there. `(?!...)` where the `...` is the pattern that you do not want to be there.
 
-  ```js
-  let american = "color";
-  let british = "colour";
-  let rainbowRegex= /colou?r/;
-  rainbowRegex.test(american); // Returns true
-  rainbowRegex.test(british); // Returns true
-  ```
-
   * A more practical use of lookaheads is to check two or more patterns in one string. Here is a (naively) simple password checker that looks for between 3 and 6 characters and at least one number:
   
   ```js
