@@ -1,7 +1,3 @@
----
-
----
-
 # JavaScript
 
 ## Comment
@@ -320,8 +316,8 @@ var myName = "your name" // "your name" is called a string literal
         - However, it attempts to convert both values being compared to a common type
 
         ```jsx
-        3 ===  3   // true
-        3 === '3'  // true
+        3 ==  3   // true
+        3 == '3'  // true
         ```
 
     - Strict Equality: `===`
@@ -472,7 +468,7 @@ var myName = "your name" // "your name" is called a string literal
 
 ## Random
 
-- In some range, `Math.floor(Math.random()*(max-min+1)+min` inclusive min and max
+- In some range, `Math.floor(Math.random()*(max-min+1))+min` inclusive min and max
 
 ## ParseInt Function
 
