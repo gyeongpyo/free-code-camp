@@ -1,0 +1,22 @@
+function countOnline(usersObj) {
+  // Only change code below this line
+  let ret = 0;
+  for (let user in usersObj) {
+    if (usersObj[user].online) ret++;
+  }
+  return ret;
+  // Only change code above this line
+}
+
+var obj = {
+  Alan: {
+    online: false
+  },
+  Jeff: {
+    online: true
+  },
+  Sarah: {
+    online: false
+  }
+};
+console.log(countOnline(obj));
