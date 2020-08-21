@@ -1,0 +1,7 @@
+function confirmEnding(str, target) {
+  let s = str.split("").slice(str.length-target.length, str.length).join('');
+  return s == target;
+}
+
+confirmEnding("Bastian", "n");
+confirmEnding("Congratulation", "on");
