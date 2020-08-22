@@ -1,0 +1,5 @@
+function Dog() {
+  this.name = "dengdeng";
+  this.color = "white";
+  this.numLegs = 4;
+}
