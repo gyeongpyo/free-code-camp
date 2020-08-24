@@ -1,0 +1,7 @@
+// Only change code below this line
+function urlSlug(title) {
+  let words =  title.toLowerCase().split(' ');
+  return words.filter(word => word.length > 0).join("-");
+}
+// Only change code above this line
+console.log(urlSlug(' Winter Is Coming'));

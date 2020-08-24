@@ -1,0 +1,15 @@
+console.clear();
+const squareList = (arr) => {
+  // Only change code below this line
+  arr.reduce((acc, cur) => {
+    if (cur > 0 && !(cur%1)) return acc.concat(Math.pow(cur));
+    return acc;
+  }, []);
+  return arr.
+    filter(number => number > 0 && !(number%1)).
+    map(number => number*number);
+  // Only change code above this line
+};
+
+const squaredIntegers = squareList([-3, 4.8, 5, 3, -3.2]);
+console.log(squaredIntegers);
