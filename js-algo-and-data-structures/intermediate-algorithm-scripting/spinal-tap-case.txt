@@ -1,0 +1,5 @@
+function spinalCase(str) {
+  return str.match(/[A-Z]*[a-z]+/g).map(cur => cur.toLowerCase()).join('-');
+}
+
+console.log(spinalCase('thisIsSpinalTap'));

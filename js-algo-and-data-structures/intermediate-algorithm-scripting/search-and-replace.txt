@@ -1,0 +1,15 @@
+function myReplace(str, before, after) {
+  let regex = '/' + before + '/i';
+  let firstChar = str.match(before)[0][0];
+  let chars = after.split('');
+  if (firstChar == firstChar.toUpperCase()) {
+    chars[0] = chars[0].toUpperCase();
+    after = chars.join('');
+  } else {
+    chars[0] = chars[0].toLowerCase();
+    after = chars.join('');
+  }
+  return str.replace(before, after);
+}
+
+myReplace("Let us get back to more Coding", "Coding", "algorithms");

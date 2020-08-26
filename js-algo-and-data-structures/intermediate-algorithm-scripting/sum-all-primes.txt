@@ -1,0 +1,17 @@
+function sumPrimes(num) {
+  let nonPrim = [];
+  let sum = 0;
+  for (let i = 2; i*i <= num; ++i) {
+    if (nonPrim.includes(i)) continue;
+    for (let j = i*i; j <= num; j += i) {
+      nonPrim.push(j);
+    }
+  }
+  for (let i = 2; i <= num; ++i) {
+    if (nonPrim.includes(i)) continue;
+    sum += i; 
+  }
+  return sum;
+}
+
+console.log(sumPrimes(10));

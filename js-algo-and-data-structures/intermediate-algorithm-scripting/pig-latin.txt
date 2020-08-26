@@ -1,0 +1,8 @@
+function translatePigLatin(str) {
+  if (/^[aeiou]/.test(str)) {
+    return str.concat('way');
+  }
+  return str.replace(/([^aeiou]*)([a-z]*)/, "$2$1").concat('ay');
+}
+
+console.log(translatePigLatin("consonant"));

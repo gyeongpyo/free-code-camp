@@ -1,0 +1,13 @@
+function sumFibs(num) {
+  if (num <= 2) return num;
+  let fibo = [1, 1];
+  let sum = 2;
+  while (fibo[0]+fibo[1] <= num) {
+    let temp = fibo[0]+fibo[1];
+    fibo[0] = fibo[1]; fibo[1] = temp;
+    if (temp%2 == 1) sum += temp;
+  }
+  return sum;
+}
+
+sumFibs(4);

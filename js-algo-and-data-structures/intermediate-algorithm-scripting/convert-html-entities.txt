@@ -1,0 +1,14 @@
+function convertHTML(str) {
+  let cnvrtChr = (char) => {
+    switch (char) {
+      case '&': return '&amp;';
+      case '<': return '&lt;';
+      case '>': return '&gt;';
+      case '"': return '&quot;';
+      case "'": return '&apos;';
+    }
+  }
+  return str.replace(/[&<>"'']/g, cnvrtChr);
+}
+
+console.log(convertHTML("Schindler's List"));

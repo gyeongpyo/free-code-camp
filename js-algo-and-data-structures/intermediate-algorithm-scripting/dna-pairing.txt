@@ -1,0 +1,17 @@
+function pairElement(str) {
+  let arr = str.split('');
+  return arr.map(cur => {
+    switch(cur) {
+      case 'A':
+      return [cur, 'T'];
+      case 'T':
+      return [cur, 'A'];
+      case 'C':
+      return [cur, 'G'];
+      case 'G':
+      return [cur, 'C'];
+    }
+  });
+}
+
+pairElement("GCG");

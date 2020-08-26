@@ -1,0 +1,16 @@
+function smallestCommons(arr) {
+  let max = Math.max(...arr), min = Math.min(...arr);
+  let checkCommonMultiple = (arr, num, max, min) => {
+    for (let i = min; i <= max; ++i) {
+      if (num%i != 0) return false;
+    }
+    return true;
+  }
+  
+  for (let i = max;; i += max) {
+    if (checkCommonMultiple(arr, i, max, min)) return i;
+  } 
+}
+
+
+console.log(smallestCommons([1,5]));
