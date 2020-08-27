@@ -1,0 +1,32 @@
+function checkCashRegister(price, cash, cid) {
+  var change = cash - price;
+  let copy = JSON.parse(JSON.stringify(cid));
+  let ret = {status: null, change: []};
+  let cashes = [0.01, 0.05, 0.1, 0.25, 1, 5, 10, 20, 100];
+  let check_close = true;
+  for (let i = cid.length-1; i >= 0; --i) {
+    let sum = 0;
+    while (cid[i][1] && change >= cashes[i]) {
+      change = Math.round((change - cashes[i])*100)/100;
+      sum = Math.round((sum+cashes[i])*100)/100;
+      cid[i][1] = Math.round((cid[i][1]-cashes[i])*100)/100;
+    }
+    if (cid[i][1] && check_close) check_close = false;
+    if (sum) ret.change.unshift([cid[i][0], sum]);
+  }
+  if (change) {
+    ret.status = "INSUFFICIENT_FUNDS";
+    ret.change = [];
+  } else {
+    if (check_close) {
+      ret.status = "CLOSED";
+      ret.change = [...copy];
+    } else {
+      ret.status = "OPEN";
+      ret.change.reverse();
+    }
+  }
+  return ret;
+}
+
+console.log(checkCashRegister(19.5, 20, [["PENNY", 0.5], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]));

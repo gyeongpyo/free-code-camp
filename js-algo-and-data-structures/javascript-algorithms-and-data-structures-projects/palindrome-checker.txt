@@ -1,0 +1,14 @@
+function palindrome(str) {
+  let trans = str.toLowerCase().match(/[a-z0-9]/g);
+  let origin = trans.join('');
+  let rev = trans.reverse().join('');
+  console.log(origin, rev);
+  if (origin == rev) {
+    return true;
+  }
+  return false;
+}
+
+
+
+console.log(palindrome("race car"));

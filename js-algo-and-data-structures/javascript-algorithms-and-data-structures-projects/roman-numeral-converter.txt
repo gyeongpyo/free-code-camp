@@ -1,0 +1,19 @@
+function convertToRoman(num) {
+  let ans = [];
+  let symbols = {
+    1: ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX'],
+    10: ['X', 'XX', 'XXX', 'XL', 'L', 'LX', 'LXX', 'LXXX', 'XC'],
+    100: ['C', 'CC', 'CCC', 'CD', 'D', 'DC', 'DCC', 'DCCC', 'CM'],
+    1000: ['M', 'MM', 'MMM']
+  }
+  let p = 1;
+  while (num) {
+    let remainder = num%10;
+    ans.unshift(symbols[p][remainder-1]);
+    num = parseInt(num/10);
+    p *= 10;
+  }
+ return ans.join('');
+}
+
+console.log(convertToRoman(2));
