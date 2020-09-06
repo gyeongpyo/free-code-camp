@@ -49,7 +49,7 @@ a:hover { /* pseudo-classes */
 
 ## Absolute Position
 
-* This removes the element from the normal flow of the document, so surrounding items ignore it. 
+* This removes the element from the normal flow of the document, so surrounding items ignore it.
 * If you forget to add a position rule to the parent item, (this is typically done using `position: relative;`), the browser will keep looking up the chain and ultimately default to the body tag.
 
 ```css
@@ -58,7 +58,7 @@ a:hover { /* pseudo-classes */
 
 ## Fixed Position
 
-* Fixed position is a type of absolute positioning that locks an element relative to the browser window. 
+* Fixed position is a type of absolute positioning that locks an element relative to the browser window.
 * One key difference between the `fixed` and `absolute` positions is that an element with a fixed position won't move when the user scrolls.
 
 ```css
@@ -67,7 +67,7 @@ a:hover { /* pseudo-classes */
 
 ## Push Elements Left or Right with the float property
 
-* Floating elements are removed from the normal flow of a document and pushed to either the `left` or `right` of their containing parent element. 
+* Floating elements are removed from the normal flow of a document and pushed to either the `left` or `right` of their containing parent element.
 
 ```css
 #left {
@@ -82,10 +82,10 @@ a:hover { /* pseudo-classes */
 
 ## z-index
 
- higher values for the `z-index` property of an element move it higher in the stack than those with lower values.
+higher values for the `z-index` property of an element move it higher in the stack than those with lower values.
 
 ```css
- .first {
+.first {
     background-color: red;
     position: absolute;
     z-index: 2;
@@ -154,7 +154,7 @@ background: repeating-linear-gradient(
 
 ```
 
-## Transform scale Property 
+## Transform scale Property
 
 ```css
 #ball2 {
@@ -180,7 +180,7 @@ p {
 ## `::after`, `::before`
 
 * the `content` property is required.
-* These pseudo-elements are used to add something before or after a selected element. 
+* These pseudo-elements are used to add something before or after a selected element.
 
 ```css
 .heart::before {
@@ -197,5 +197,93 @@ p {
 
 ## How the CSS @keyframes and animation Properties Work
 
-* Animation properties: how the animation should behave and the `@keyframes`
-* 
+* Animation properties: how the animation should behave
+*  `@keyframes`: what happens during that animation.
+```css
+<style>
+  div {
+    height: 40px;
+    width: 70%;
+    background: black;
+    margin: 50px auto;
+    border-radius: 5px;
+  }
+
+  #rect {
+    animation-name: rainbow;
+    animation-duration: 4s;
+    animation-fill-mode: forwards; /* to stay highlighted */
+  }
+
+  @keyframes rainbow {
+    0% {
+      background-color: blue;
+    }
+    50% {
+      background-color: green;
+    }
+    100% {
+      background-color: yellow;
+    }
+  }
+</style>
+<div id="rect"></div>
+```
+* `animation-fill-mode`  specifies the style applied to an element when the animation has finished.
+
+## Create Movement Using CSS Animation
+* Use offset properties `right`, `left`, `top`, and `bottom`
+
+```css
+@(Free code camp)keyframes rainbow {
+    0% {
+      background-color: blue;
+      top: 0px;
+      left: 0px;
+    }
+    50% {
+      background-color: green;
+      top: 50px;
+      left: 25px;
+    }
+    100% {
+      background-color: yellow;
+      top: 0px;
+      left: -25px;
+    }
+  }
+```
+
+## Animate Elements Continually
+* `animation-iteration-count`: how many times you would like to loop through the animation.
+
+```css
+animation-iteration-count: infinite;
+```
+
+## Change Animation Timing with keywords
+* `animation-timing-function`: controls how quickly an animated element changes over the duration of the animation.
+	* `ease` value: starts slow, speeds up in the middle, and then slows down again in the end.
+	* `ease-out`: quick in the beginning then slows down.
+	* `ease-in`: slow in the beginning, then speeds up at the end
+	* `linear`: a constant animation speed throughout.
+
+## Bezier Curves
+* `cubic-bezier(x1, y1, x2, y2)`
+	* consist of four main points that sit on this 1 by 1 grid (p0, p1, p2, p3)
+	* p0: (0,0)
+	* p1: (x1, y1)
+	* p2: (x2, y2)
+	* p3: (1,1)
+* X-axis: the duration of the animation (as a time scale)
+* Y-axis: the change in the animation
+```css
+/* linear */
+cubic-bezier(0.25, 0.25, 0.75, 0.75);
+```
+
+## Use a Bezier Curve to Move a Graphic
+```css
+/* speeds up first and then slows down */
+animation-timing-function: cubic-bezier(0, 0, 0.58, 1);
+```
